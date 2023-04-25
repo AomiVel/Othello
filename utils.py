@@ -1,5 +1,3 @@
-from checkers import Checker
-
 black_text = "\033[30m"
 white_text = "\033[7m"
 gb_text = "\033[42m"
@@ -27,16 +25,11 @@ def show_board(board):
     print(gb_text, "+---+---+---+---+---+---+---+---+", end_text, sep='')
 
 
-checker = Checker()
-
-def patch_placeable(board, me):
-    placeable_list = []
-    for y, row in enumerate(board):
-        for x in range(len(row)):
-            if checker.check_all(x, y, board, me):
-                placeable_list.append((x, y))
-
-    for x, y in placeable_list:
-        board[y][x] = 3
+def enemy_num(me: int):
+    match me:
+        case 1:
+            enemy = 2
+        case 2:
+            enemy = 1
     
-    return board
+    return enemy

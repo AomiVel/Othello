@@ -1,4 +1,5 @@
-import utils
+from placers import patch_placeable
+from utils import show_board
 
 
 # 0 - 空き
@@ -35,6 +36,6 @@ for a in range(8):
         board[a][b] = random.randint(0, 2)
 
 
-utils.show_board(board)
-board = utils.patch_placeable(board, me)
-utils.show_board(board)
+show_board(board)
+board = patch_placeable(board, me)
+show_board(board)
