@@ -12,3 +12,13 @@ def patch_placeable(board, me):
         board[y][x] = 3
     
     return board
+
+
+
+def reverse_above(x, y, board, me, enemy):
+    if not checkers.check_above(x, y, board, me, enemy):
+        return board
+    
+    if y in [0, 1]:
+        return board
+    
