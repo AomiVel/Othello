@@ -1,5 +1,5 @@
 class Checker:
-    def __init__(self, board, me):
+    def check_all(self, x, y, board, me):
         self.board = board
         self.me = me
 
@@ -9,19 +9,18 @@ class Checker:
             case 2:
                 self.enemy = 1
 
-    def check_all(self, x, y):
         return any([
-            self.check_above(x, y),
-            self.check_upright(x, y),
-            self.check_right(x, y),
-            self.check_bottomright(x, y),
-            self.check_bottom(x, y),
-            self.check_bottomleft(x, y),
-            self.check_left(x, y),
-            self.check_upleft(x, y)
+            self._check_above(x, y),
+            self._check_upright(x, y),
+            self._check_right(x, y),
+            self._check_bottomright(x, y),
+            self._check_bottom(x, y),
+            self._check_bottomleft(x, y),
+            self._check_left(x, y),
+            self._check_upleft(x, y)
         ])
 
-    def check_above(self, x, y):
+    def _check_above(self, x, y):
         if y in [0, 1]:
             return False
         
@@ -50,7 +49,7 @@ class Checker:
                 return False
         return False
 
-    def check_upright(self, x, y):
+    def _check_upright(self, x, y):
         if y in [0, 1]:
             return False
         if x in [6, 7]:
@@ -81,7 +80,7 @@ class Checker:
                 return False
         return False
 
-    def check_right(self, x, y):
+    def _check_right(self, x, y):
         if x in [6, 7]:
             return False
         
@@ -106,7 +105,7 @@ class Checker:
                 return False
         return False
 
-    def check_bottomright(self, x, y):
+    def _check_bottomright(self, x, y):
         if y in [6, 7]:
             return False
         if x in [6, 7]:
@@ -137,7 +136,7 @@ class Checker:
                 return False
         return False
 
-    def check_bottom(self, x, y):
+    def _check_bottom(self, x, y):
         if y in [6, 7]:
             return False
         
@@ -166,7 +165,7 @@ class Checker:
                 return False
         return False
 
-    def check_bottomleft(self, x, y):
+    def _check_bottomleft(self, x, y):
         if y in [6, 7]:
             return False
         if x in [0, 1]:
@@ -197,7 +196,7 @@ class Checker:
                 return False
         return False
 
-    def check_left(self, x, y):
+    def _check_left(self, x, y):
         if x in [0, 1]:
             return False
         
@@ -222,7 +221,7 @@ class Checker:
                 return False
         return False
 
-    def check_upleft(self, x, y):
+    def _check_upleft(self, x, y):
         if y in [0, 1]:
             return False
         if x in [0, 1]:
