@@ -33,3 +33,11 @@ def enemy_num(me: int):
             enemy = 1
     
     return enemy
+
+def is_board_filled(board):
+    for r in board:
+        if 0 in r:
+            return False
+    return True
+
+

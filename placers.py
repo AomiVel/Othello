@@ -1,6 +1,24 @@
 import checkers
 
 
+def is_both_unpleaceable(board):
+    first = second = []
+
+    for y, row in enumerate(board):
+        for x in range(len(row)):
+            if checkers.check_all(x, y, board, 1):
+                first.append((x, y))
+    
+    for y, row in enumerate(board):
+        for x in range(len(row)):
+            if checkers.check_all(x, y, board, 2):
+                second.append((x, y))
+    
+    if len(first) == len(second) == 0:
+        return True
+    return False
+
+
 def patch_placeable(board, me):
     placeable_list = []
     for y, row in enumerate(board):
