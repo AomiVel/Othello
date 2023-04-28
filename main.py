@@ -27,10 +27,11 @@ board = [
     [0, 0, 0, 0, 0, 0, 0, 0], # 7
 ]
 with open("logs.json", "r", encoding="UTF-8") as f:
-    logs = json.load(f)
+    logs: list = json.load(f)
 result = []
 
 try_count = 0
+dupl_count = 0
 
 try:
     while True:
@@ -54,7 +55,10 @@ try:
             if not result in logs:
                 logs.append(result)
                 try_count += 1
-                print("\r{}".format(try_count), end="")
+                
+            else:
+                dupl_count += 1
+            print("\r{} | {}".format(try_count, dupl_count), end="")
                 
             result = []
             board = [
@@ -92,7 +96,10 @@ try:
             if not result in logs:
                 logs.append(result)
                 try_count += 1
-                print("\r{}".format(try_count), end="")
+                
+            else:
+                dupl_count += 1
+            print("\r{} | {}".format(try_count, dupl_count), end="")
                 
             result = []
             board = [
@@ -120,7 +127,10 @@ try:
             if not result in logs:
                 logs.append(result)
                 try_count += 1
-                print("\r{}".format(try_count), end="")
+                
+            else:
+                dupl_count += 1
+            print("\r{} | {}".format(try_count, dupl_count), end="")
                 
             result = []
             board = [
@@ -140,7 +150,5 @@ try:
 
     
 except KeyboardInterrupt:
-    pass
-
-    # with open("logs.json", "w", encoding="UTF-8") as f:
-    #     json.dump(logs, f)
+    with open("logs.json", "w", encoding="UTF-8") as f:
+        json.dump(logs, f)
